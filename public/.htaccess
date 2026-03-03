@@ -1,0 +1,23 @@
+# ===============================================
+# TaskForge — Apache Rewrite Rules
+# ===============================================
+
+RewriteEngine On
+
+# 1. CORS Headers
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+</IfModule>
+
+# Handle CORS preflight
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# 2. Serve existing files directly (css, js, images, manifest, sw.js)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# 3. Route everything else through the front controller
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]

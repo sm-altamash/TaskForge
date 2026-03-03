@@ -1,61 +1,60 @@
-# Composer / PHP
-/vendor/
-/composer.lock
-/.phpunit.result.cache
-/.idea/
-/.vscode/
-/nbproject/
-
-# Laravel common (if you later add full Laravel parts)
+# ========================
+# Environment
+# ========================
 .env
-/.env.*
-/storage/
-/bootstrap/cache/
-/public/storage
-Homestead.json
-Homestead.yaml
+.env.*
+!.env.example
+
+# ========================
+# Storage
+# ========================
+storage/uploads/*
+!storage/uploads/.gitkeep
+storage/logs/*
+!storage/logs/.gitkeep
+
+# ========================
+# Dependencies
+# ========================
+/vendor/
+composer.lock
 /node_modules/
-/npm-debug.log
-/yarn-error.log
-/public/hot
 
-# Docker
-docker-compose.override.yml
-**/docker/.env
-**/docker/*-secrets/*
-**/docker/*-env/*
-*.log
-
-# PHPStorm, VSCode, editor backups
+# ========================
+# IDE / Editor
+# ========================
+.idea/
+.vscode/
 *.sublime-workspace
 *.sublime-project
 *.swp
-*~ 
+*~
+nbproject/
+
+# ========================
+# OS Files
+# ========================
 .DS_Store
 Thumbs.db
 
-# Build / coverage
-/vendor/
+# ========================
+# Testing / Build
+# ========================
 /coverage/
 /build/
 phpunit.xml
 phpunit.xml.dist
+.phpunit.result.cache
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Credentials, cookies, sensitive
-cookies.txt
+# ========================
+# Credentials & Secrets
+# ========================
 *.pem
 *.key
 *.crt
+cookies.txt
 
+# ========================
 # Logs
+# ========================
 *.log
-storage/logs/*.log
-
-# Misc
-.env.local
-.env.testing
-.env.production
